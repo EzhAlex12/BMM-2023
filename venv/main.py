@@ -32,8 +32,27 @@ class Dataset(Dataset):
 f = open('dataset/stop2.txt').readline()
 f = json.loads(f)
 
+for i in range(len(f)):
+    x = f[i][0]
+    y = f[i][1]
+    rs_x = 1 - x
+    rs_y = 1 - y
+    for j in range(0, len(f[i]), 2):
+        f[i][j] += rs_x
+        f[i][j + 1] += rs_y
+print(f)
+
 f = open('dataset/kulaksgat2.txt').readline()
 f = json.loads(f)
+
+for i in range(len(f)):
+    x = f[i][0]
+    y = f[i][1]
+    rs_x = 1 - x
+    rs_y = 1 - y
+    for j in range(0, len(f[i]), 2):
+        f[i][j] += rs_x
+        f[i][j + 1] += rs_y
 
 data, temp = [],[]
 gests = os.listdir('dataset')
